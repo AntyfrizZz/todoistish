@@ -1,7 +1,12 @@
 import React from "react";
+import { Sidebar } from "./SIdebar";
 
 export const Content = () => {
-    const a = 1;
+  const a = 1;
 
-    return <section></section>
-}
+  return (
+    <section>
+      <Sidebar />
+    </section>
+  );
+};
