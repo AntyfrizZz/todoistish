@@ -1,3 +1,9 @@
 import React from "react";
 
-export const App: React.FC = () => <div>todoistish</div>;
+import { Header } from "./components/layout/Header";
+
+export const App: React.FC = () => (
+  <>
+    <Header></Header>
+  </>
+);
