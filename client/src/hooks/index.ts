@@ -13,12 +13,13 @@ export const useTasks = (selectedProject: any) => {
       .collection("tasks")
       .where("userId", "==", "az");
 
+      debugger;
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
         ? (unsubscribe = unsubscribe.where(
             "projectId",
             "==",
-            "selectedProject"
+            selectedProject
           ))
         : selectedProject === "TODAY"
         ? (unsubscribe = unsubscribe.where(
@@ -31,6 +32,7 @@ export const useTasks = (selectedProject: any) => {
         : unsubscribe;
 
     return unsubscribe.onSnapshot(snapshot => {
+        debugger;
       const newTasks = snapshot.docs.map(task => ({
         id: task.id,
         ...task.data()
@@ -49,7 +51,7 @@ export const useTasks = (selectedProject: any) => {
     });
   }, [selectedProject]);
 
-  return { tasks, selectedProject };
+  return { tasks, archivedTasks };
 };
 
 export const useProjects = () => {
